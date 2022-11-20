@@ -1,0 +1,28 @@
+{
+    "name": "libraryxsz",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "description": "When websites meet Shenzhen library.",
+    "host_permissions": [
+        "https://szlib.org.cn/*"
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "icons": {
+        "16": "icons/libsz16x16.png",
+        "32": "icons/libsz32x32.png",
+        "48": "icons/libsz48x48.png",
+        "128": "icons/libsz128x128.png"
+    },
+    "action": {
+        "default_popup": "popup/popup.html"
+    },
+    "content_scripts": [{
+        "js": ["scripts/douban.js"],
+        "matches": [
+            "https://book.douban.com/subject/*"
+        ]
+    }]
+}

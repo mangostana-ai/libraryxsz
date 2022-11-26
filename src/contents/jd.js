@@ -2,7 +2,9 @@
 const info = document.querySelector(".p-parameter>ul>li:nth-child(2)")
 var cts = info.textContent.split(/\n/).filter(item => item.replaceAll(/\s|\t| /g,'').length> 0)
 var isbn = cts[cts.length-1].match(/(\d+)/)[1]
-
+if (cts[cts.length-1].indexOf('ISBN') < 0) {
+    isbn = 0;
+}
 // meet library
 chrome.runtime.sendMessage({isbn: isbn}, function(response) {
     console.log(response);

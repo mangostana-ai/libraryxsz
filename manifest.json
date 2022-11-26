@@ -6,6 +6,10 @@
     "host_permissions": [
         "https://szlib.org.cn/*"
     ],
+    "permissions": [
+        "contextMenus"
+    ],
+    "contexts":["page_action"],
     "background": {
         "service_worker": "src/background.js",
         "type": "module"
@@ -34,6 +38,14 @@
             ],
             "matches": [
                 "https://item.jd.com/*"
+            ]
+        },
+        {
+            "js": [
+                "src/contents/zhihu.js"
+            ],
+            "matches": [
+                "https://*.zhihu.com/*"
             ]
         }
     ]

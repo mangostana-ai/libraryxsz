@@ -12,5 +12,5 @@ Libraryxsz stands for browser(Microsoft Edge, Google Chrome) extension for Shenz
 
 ## Behind the scene
 - content scripts parse website page contents to find book name, then send message to background script
-- background script is listening on context menu options, when 'Search from Shenzhen Library' option is trigger
+- background script is listening on messages or context menu options, when 'Search from Shenzhen Library' option is trigger
 - when search message or option is received, background script call api from Shenzhen library, then sends back the search results

@@ -9,7 +9,6 @@
     "permissions": [
         "contextMenus"
     ],
-    "contexts":["page_action"],
     "background": {
         "service_worker": "src/background.js",
         "type": "module"

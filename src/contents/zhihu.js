@@ -10,10 +10,16 @@ function writeToPage(request) {
 
     var aside = document.querySelector("body");
 
-
-    var xsz = document.createElement('div');
-    xsz.style = 'position: fixed;top:240px;left:15px;width:min-content;z-index:100';
-    xsz.classList = 'libraryxsz';
+    var xsz = document.querySelector('.libraryxsz');
+    if (xsz != null) {
+        while(xsz.hasChildNodes()) {
+            xsz.removeChild(xsz.firstChild);
+        }
+    } else {
+        var xsz = document.createElement('div');
+        xsz.style = 'position: fixed;top:240px;left:15px;width:min-content;z-index:100';
+        xsz.classList = 'libraryxsz';
+    }
 
     var card_header = document.createElement('div');
     card_header.classList = 'Card-header';

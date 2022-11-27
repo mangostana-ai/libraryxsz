@@ -67,19 +67,29 @@ async function getBooks(request) {
     } else {
         url = `https://szlib.org.cn/api/opacservice/getQueryResult?v_index=isbn&v_value=${isbn}+&library=all&v_tablearray=bibliosm,serbibm,apabibibm,mmbibm,&cirtype=&sortfield=ptitle&sorttype=desc&pageNum=10&v_page=1&v_startpubyear=&v_endpubyear=&v_secondquery=`;
     }
-    let response = await fetch(url, { mode: 'no-cors' });
-    // .then(r => r.text())
-    // .then(result => {
-    //     return result;
-    // })
-    return await response.text();
+    try {
+        let response = await fetch(url, { mode: 'no-cors' });
+        // .then(r => r.text())
+        // .then(result => {
+        //     return result;
+        // })
+        return await response.text();
+    } catch(e){
+
+    }
+
 }
 
 async function getBorrowable(item) {
     let recordid = item.recordid;
     let url = `https://szlib.org.cn/api/opacservice/getBookDetail?metaTable=bibliosm&metaId=${recordid}&library=all`;
-    let response = await fetch(url, { mode: 'no-cors' });
-    let text = await response.text();
+    var text = '{}';
+    try {
+        let response = await fetch(url, { mode: 'no-cors' });
+        text = await response.text();
+    } catch(e) {
+
+    }
     var json = JSON.parse(text);
     if (json && json['CanLoanBook'] && json['CanLoanBook'].length > 0) {
         let canLoanBooks = json['CanLoanBook'];

@@ -49,6 +49,14 @@
         },
         {
             "js": [
+                "src/contents/e-jd.js"
+            ],
+            "matches": [
+                "https://e.jd.com/*"
+            ]
+        },
+        {
+            "js": [
                 "src/contents/zhihu.js"
             ],
             "matches": [

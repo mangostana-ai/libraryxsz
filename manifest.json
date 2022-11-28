@@ -62,6 +62,14 @@
             "matches": [
                 "https://*.zhihu.com/*"
             ]
+        },
+        {
+            "js":["src/contents/dangdang.js"],
+            "matches":["*://product.dangdang.com/*"]
+        },
+        {
+            "js":["src/contents/e-dangdang.js"],
+            "matches":["*://e.dangdang.com/products/*"]
         }
     ]
 }

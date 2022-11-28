@@ -33,6 +33,14 @@
         },
         {
             "js": [
+                "src/contents/read-douban.js"
+            ],
+            "matches": [
+                "https://read.douban.com/ebook/*"
+            ]
+        },
+        {
+            "js": [
                 "src/contents/jd.js"
             ],
             "matches": [

@@ -1,10 +1,11 @@
 {
-    "name": "libraryxsz",
+    "name": "图书网站x深圳图书馆",
     "version": "0.0.1",
     "manifest_version": 3,
-    "description": "When websites meet Shenzhen library.",
+    "description": "图书网站联动深圳图书馆馆藏查询工具",
     "host_permissions": [
-        "https://szlib.org.cn/*"
+        "https://szlib.org.cn/*",
+        "https://www.douban.com/*"
     ],
     "permissions": [
         "contextMenus"
@@ -64,12 +65,28 @@
             ]
         },
         {
-            "js":["src/contents/dangdang.js"],
-            "matches":["*://product.dangdang.com/*"]
+            "js": [
+                "src/contents/dangdang.js"
+            ],
+            "matches": [
+                "*://product.dangdang.com/*"
+            ]
         },
         {
-            "js":["src/contents/e-dangdang.js"],
-            "matches":["*://e.dangdang.com/products/*"]
+            "js": [
+                "src/contents/e-dangdang.js"
+            ],
+            "matches": [
+                "*://e.dangdang.com/products/*"
+            ]
+        },
+        {
+            "js": [
+                "src/contents/szlib.js"
+            ],
+            "matches": [
+                "https://szlib.org.cn/opac/searchDetail*"
+            ]
         }
     ]
 }

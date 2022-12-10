@@ -1,7 +1,7 @@
 var isbn = document.querySelector('.bookInfo>.li:nth-child(3)>.column:nth-child(2)>.infoItem>:last-child').textContent;
 
 // meet library
-chrome.runtime.sendMessage({ isbn: isbn }, function (response) {
+chrome.runtime.sendMessage({ isbn: isbn,visit: 'library' }, function (response) {
     console.log(response);
     if (response == null) {
         return null;

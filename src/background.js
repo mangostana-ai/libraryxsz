@@ -1,7 +1,14 @@
 
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    checkBorrowable(request).then(sendResponse);
+    if(request.visit == 'library') {
+        checkBorrowable(request).then(sendResponse);
+    } else if(request.visit == 'douban-search') {
+        doubanSearch(request).then(sendResponse);
+    } else if(request.visit == 'douban-subject') {
+        doubanSubject(request).then(sendResponse);
+    }
+    
     return true; // return true to indicate you want to send a response asynchronously
 });
 
@@ -14,7 +21,7 @@ chrome.runtime.onInstalled.addListener(() => {
             id: "pamjfaaphhhkijadcpoadijenmlldcni"
         }
     )
-  });
+});
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
     checkBorrowable({title: info.selectionText}).then(result => {
@@ -101,4 +108,40 @@ async function getBorrowable(item) {
         });
     }
     return {};
+}
+
+async function doubanSearch(request) {
+    let {isbn, visit} = request;
+    if (isbn == 0) {
+        return null;
+    }
+    var url = `https://www.douban.com/search?cat=1001&q=${isbn}`;
+    try {
+        let response = await fetch(url, { mode: 'no-cors' });
+        // .then(r => r.text())
+        // .then(result => {
+        //     return result;
+        // })
+        return await response.text();
+    } catch(e){
+
+    }
+}
+
+async function doubanSubject(request) {
+    let {sid, visit} = request;
+    if (sid == 0) {
+        return null;
+    }
+    var url = `https://book.douban.com/subject/${sid}/`;
+    try {
+        let response = await fetch(url, { mode: 'no-cors' });
+        // .then(r => r.text())
+        // .then(result => {
+        //     return result;
+        // })
+        return await response.text();
+    } catch(e){
+
+    }
 }

@@ -6,7 +6,7 @@ if (cts[cts.length-1].indexOf('ISBN') < 0) {
     isbn = 0;
 }
 // meet library
-chrome.runtime.sendMessage({isbn: isbn}, function(response) {
+chrome.runtime.sendMessage({isbn: isbn,visit: 'library'}, function(response) {
     console.log(response);
     if ( response == null) {
         return null;

@@ -4,7 +4,7 @@ var m = info.content.match(/ISBN：(\d+)/)
 var isbn = m[1];
 console.log('isbn', isbn)
 // meet library
-chrome.runtime.sendMessage({ isbn: isbn }, function (response) {
+chrome.runtime.sendMessage({ isbn: isbn,visit: 'library'}, function (response) {
     console.log(response);
     if (response == null) {
         return null;

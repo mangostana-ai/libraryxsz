@@ -1,7 +1,7 @@
 var isbn = document.querySelector('.article-meta>p:last-child>span:last-child').textContent;
 
 // meet library
-chrome.runtime.sendMessage({ isbn: isbn }, function (response) {
+chrome.runtime.sendMessage({ isbn: isbn,visit: 'library' }, function (response) {
     console.log(response);
     if (response == null) {
         return null;

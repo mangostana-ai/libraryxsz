@@ -1,6 +1,6 @@
 {
     "name": "图书网站x深圳图书馆",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "manifest_version": 3,
     "description": "图书网站联动深圳图书馆馆藏查询工具",
     "host_permissions": [
